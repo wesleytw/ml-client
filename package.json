@@ -8,8 +8,8 @@
   "dependencies": {
     "axios": "^0.27.2",
     "daisyui": "^2.24.0",
-    "isomorphic-unfetch": "^3.1.0",
-    "next": "latest",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "12.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
