@@ -23,7 +23,8 @@ const Home = () => {
       }))
       // const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api"
         // const res = await fetch("/api/cors?url=http://127.0.0.1:8000/api?age=68&gender=0&bp=2&cholesterol=2&salt=2&model=svm"
-        const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api/ml"
+        // const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api/ml"
+        const res = await fetch("/api/cors?url=https://jsonplaceholder.typicode.com/todos/1"
         , {
           method: 'GET',
           headers: {
