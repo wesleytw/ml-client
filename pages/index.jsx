@@ -40,7 +40,7 @@ const Home = () => {
       );
       const data = await res.text();
       setimg(data);
-      console.log("data", data)
+      console.log("data", data,res)
     } catch (error) {
       // setimg(error.toString());
     }
