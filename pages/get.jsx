@@ -55,8 +55,8 @@ const Home = () => {
         <title>Home</title>
       </Head>
 
-      <div className="hero">
-        <h1 className="title">Welcome to Cors NextJS!</h1>
+      <div className="">
+        {/* <h1 className="title">Welcome to Cors NextJS!</h1>
         <p className="description">
           To try the demo, please click on the boxs below.
         </p>
@@ -66,31 +66,31 @@ const Home = () => {
             <a>link</a>
           </Link>
           .
-        </p>
+        </p> */}
 
-        <div className="row">
-          <a className="card" onClick={handleNoCors}>
+        <div className="">
+          {/* <a className="card" onClick={handleNoCors}>
             <h3>No Cors Example &rarr;</h3>
             <p>Fetch data from example.com</p>
-          </a>
+          </a> */}
           {/* <Link href="https://www.paypal.me/chitly/5">
             <a className="card" onClick={handleNoCors}>
               <h3>Support The Project &rarr;</h3>
               <p>https://www.paypal.me/chitly/5</p>
             </a>
           </Link> */}
-          <a className="card" onClick={handleCors}>
+          <a className="" onClick={handleCors}>
             <h3>Cors Example &rarr;</h3>
             <p>Fetch data from example.com</p>
           </a>
         </div>
 
-        <div className="row">
-          <div className="card">
+        <div className="">
+          <div className="">
             <h3>Result No Cors</h3>
             <p>{resultNoCors}</p>
           </div>
-          <div className="card">
+          <div className="">
             <h3>Result Cors</h3>
             <p>{resultCors}</p>
           </div>
