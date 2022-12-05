@@ -1,4 +1,4 @@
-// import fetch from "isomorphic-unfetch";  //used for SSR
+import fetch from "isomorphic-unfetch";  //used for SSR
 
 const Cors = async (req, res) => {
   const { url } = req.query;
