@@ -158,7 +158,7 @@ const Home = () => {
                   <select name="model" type="text" onChange={handleChange} value={inputs.model || ""}
                     required className="block bg-black text-white h-12 appearance-none rounded focus:border border border-white font-normal px-[15px] pr-10"
                   >
-                    <option value="tree">Decision <br /> tree</option>
+                    <option value="tree">Decision tree</option>
                     <option value="svm">SVM</option>
                   </select>
                   <div className="pointer-events-none absolute inset-y-0 -right-0 flex items-center px-2 text-white">
