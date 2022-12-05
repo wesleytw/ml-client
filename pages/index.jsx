@@ -21,26 +21,27 @@ const Home = () => {
         "salt": inputs.na,
         "model": inputs.model,
       }))
-      const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api"
+      // const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api"
         // const res = await fetch("/api/cors?url=http://127.0.0.1:8000/api?age=68&gender=0&bp=2&cholesterol=2&salt=2&model=svm"
+        const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api/ml"
         , {
-          method: 'POST',
+          method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            "age": inputs.age,
-            "gender": inputs.sex,
-            "bp": inputs.bp,
-            "cholesterol": inputs.c,
-            "salt": inputs.na,
-            "model": inputs.model,
-          })
+          // body: JSON.stringify({
+          //   "age": inputs.age,
+          //   "gender": inputs.sex,
+          //   "bp": inputs.bp,
+          //   "cholesterol": inputs.c,
+          //   "salt": inputs.na,
+          //   "model": inputs.model,
+          // })
         }
       );
       const data = await res.text();
       setimg(data);
-      console.log("data", data,res)
+      console.log("data", data)
     } catch (error) {
       // setimg(error.toString());
     }

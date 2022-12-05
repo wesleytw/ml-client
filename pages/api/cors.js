@@ -17,11 +17,11 @@ const Cors = async (req, res) => {
       , {
         method: req.method,
         headers: header,
-        body: JSON.stringify(req.body),
+        // body: JSON.stringify(req.body),
         redirect: 'follow'
       }
     );
-    // console.log("rr",resProxy.body)
+    console.log("rr",resProxy.body)
     res.status(200).send(resProxy.body);
   } catch (error) {
     res.status(400).send(error.toString());
