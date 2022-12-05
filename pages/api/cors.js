@@ -17,7 +17,7 @@ const Cors = async (req, res) => {
       , {
         method: req.method,
         headers: header,
-        // body: JSON.stringify(req.body),
+        body: JSON.stringify(req.body),
         redirect: 'follow'
       }
     );

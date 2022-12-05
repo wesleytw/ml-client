@@ -21,23 +21,23 @@ const Home = () => {
         "salt": inputs.na,
         "model": inputs.model,
       }))
-      // const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api"
+      const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api"
         // const res = await fetch("/api/cors?url=http://127.0.0.1:8000/api?age=68&gender=0&bp=2&cholesterol=2&salt=2&model=svm"
         // const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api/ml"
-        const res = await fetch("/api/cors?url=https://jsonplaceholder.typicode.com/todos/1"
+        // const res = await fetch("/api/cors?url=https://jsonplaceholder.typicode.com/todos/1"
         , {
-          method: 'GET',
+          method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          // body: JSON.stringify({
-          //   "age": inputs.age,
-          //   "gender": inputs.sex,
-          //   "bp": inputs.bp,
-          //   "cholesterol": inputs.c,
-          //   "salt": inputs.na,
-          //   "model": inputs.model,
-          // })
+          body: JSON.stringify({
+            "age": inputs.age,
+            "gender": inputs.sex,
+            "bp": inputs.bp,
+            "cholesterol": inputs.c,
+            "salt": inputs.na,
+            "model": inputs.model,
+          })
         }
       );
       const data = await res.text();
@@ -176,7 +176,10 @@ const Home = () => {
             {img &&
               <div className=' text-black mt-2'>
                 <p className="">Result:</p>
-                <p className=" w-16">{img}</p>
+                <p className=" ">
+                  {/* {img} */}
+                  api response error 400
+                </p>
               </div>
             }
           </div>
