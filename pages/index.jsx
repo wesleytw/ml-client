@@ -55,13 +55,13 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="">
-        <div className="navbar text-neutral-content shadow mb-4">
+        <div className="navbar z-50 text-neutral-content shadow mb-4">
           <a className="btn btn-ghost text-base m-3 text-black normal-case font-extrabold text-left shadow-xl w-16 h-14 rounded-2xl">
             Degen <br /> ML
           </a>
         </div>
-        <div className=" flex justify-center border-b">
-          <div className=" w-96 mb-5">
+        <div className=" flex justify-center border-b z-0">
+          <div className=" w-96 mt-5 mb-10">
             <p className=" text-center text-xl">Drug Treatment Prediction </p>
             <p className=" text-center text-xs pt-2">This is a drug treatment prediction machine learning model. Try to use different training models to observe the result.</p>
           </div>
@@ -76,7 +76,7 @@ const Home = () => {
               Here, we'll act as a data analyst compiling medical data on a set of patients all suffering from the same illness. During their treatment,
               each patient responded to one of five drug treatments."
             </p>
-            <a href='https://dev.to/paulwababu' className=" text-center text-xs pt-2 underline">inspired by paulwababu</a>
+            <a href='https://dev.to/paulwababu' className=" w-full text-xs pt-2 underline text-right">inspired by paulwababu</a>
           </div>
           <div className=" mt-5">
             <label className=" px-6 mb-6 block">
@@ -150,7 +150,7 @@ const Home = () => {
               </div>
             </label>
           </div>
-          <div className=" text-white ml-4">
+          <div className=" text-white ml-4 w-64">
             <div className=" mt-5 bg-black p-4 h-min rounded-3xl">
               <label className="px-6 mb-6 block">
                 <p className=" text-center leading-4 font-normal mb-3 text-white">
@@ -174,15 +174,18 @@ const Home = () => {
               predict
             </button>
             {img &&
-              <div className=' text-black mt-2'>
+              <div className=' text-black mt-2 w-64'>
                 <p className="">Result: </p>
-                <p className=" ">
+                <p className=" break-all">
                   {img}
                   {/* api response error 400 */}
                 </p>
               </div>
             }
           </div>
+        </div>
+        <div className=" w-full flex justify-center mt-10">
+          <img src="/tree.png" alt="" className=" w-1/2 mb-10" />
         </div>
       </div>
     </div>
