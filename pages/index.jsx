@@ -177,8 +177,8 @@ const Home = () => {
               <div className=' text-black mt-2'>
                 <p className="">Result: </p>
                 <p className=" ">
-                  {/* {img} */}
-                  api response error 400
+                  {img}
+                  {/* api response error 400 */}
                 </p>
               </div>
             }
