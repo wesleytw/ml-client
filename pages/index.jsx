@@ -175,7 +175,7 @@ const Home = () => {
             </button>
             {img &&
               <div className=' text-black mt-2'>
-                <p className="">Result:</p>
+                <p className="">Result: </p>
                 <p className=" ">
                   {/* {img} */}
                   api response error 400
