@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 
 const Home = () => {
-  const [inputs, setInputs] = useState({ ["time"]: new Date(Date.now()), age: 68, na: 2, sex:0, bp:2, c:0, model:"tree" });
+  const [inputs, setInputs] = useState({ ["time"]: new Date(Date.now()), age: 68, na: 2, sex: 0, bp: 2, c: 0, model: "tree" });
   const [img, setimg] = useState()
   const handleChange = (event) => {
     const name = event.target.name;
@@ -13,7 +13,7 @@ const Home = () => {
   }
   const get = async () => {
     try {
-      console.log("data get",JSON.stringify({
+      console.log("data get", JSON.stringify({
         "age": inputs.age,
         "gender": inputs.sex,
         "bp": inputs.bp,
@@ -22,8 +22,8 @@ const Home = () => {
         "model": inputs.model,
       }))
       const res = await fetch("/api/cors?url=https://verceldjango.wesleyliu4.repl.co/api"
-      // const res = await fetch("/api/cors?url=http://127.0.0.1:8000/api?age=68&gender=0&bp=2&cholesterol=2&salt=2&model=svm"
-      , {
+        // const res = await fetch("/api/cors?url=http://127.0.0.1:8000/api?age=68&gender=0&bp=2&cholesterol=2&salt=2&model=svm"
+        , {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -40,30 +40,10 @@ const Home = () => {
       );
       const data = await res.text();
       setimg(data);
-      console.log("data",data)
+      console.log("data", data)
     } catch (error) {
       // setimg(error.toString());
     }
-    // try {
-    //   const res = await fetch("/api/callback?url=https://reqres.in/api/users/2"
-    //   , {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'GOFACT-API-TOKEN' :'hello'
-    //     },
-    //     body: JSON.stringify({
-    //       "name": "wesley",
-    //       "job": "zion residenthuikhjk",
-    //       "job2": "zion residentdfgx"
-    //     })
-    //   }
-  //     );
-  //     const data = await res.text();
-  //     setResultCors(data);
-  //   } catch (error) {
-  //     setResultCors(error.toString());
-  //   }
   }
 
   return (
@@ -81,7 +61,7 @@ const Home = () => {
         <div className=" flex justify-center border-b">
           <div className=" w-96 mb-5">
             <p className=" text-center text-xl">Drug Treatment Prediction </p>
-            <p className=" text-center text-xs pt-2">This is a drug treatment prediction machine learning model. Try to use different training models to observe the effect.</p>
+            <p className=" text-center text-xs pt-2">This is a drug treatment prediction machine learning model. Try to use different training models to observe the result.</p>
           </div>
         </div>
         <div className=" flex justify-center pt-5">
@@ -189,10 +169,15 @@ const Home = () => {
             </div>
             <button className=" btn btn-wide text-white mt-5 bg-black p-4 h-min rounded-3xl "
               onClick={() => get()}>
-              generate
+              predict
             </button>
+            {img &&
+              <div className=' text-black mt-2'>
+                <p className="">Result:</p>
+                <p className=" w-16">{img}</p>
+              </div>
+            }
           </div>
-          {img&& <img src={img} alt="" />}
         </div>
       </div>
     </div>
