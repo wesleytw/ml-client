@@ -12,7 +12,7 @@ const Cors = async (req, res) => {
   /* default config */
 
   try {
-    console.log("bb",url,req.body)
+    console.log("bb", url, req.body)
     const resProxy = await fetch(url
       , {
         method: req.method,
@@ -21,8 +21,10 @@ const Cors = async (req, res) => {
         redirect: 'follow'
       }
     );
-    console.log("rr",resProxy.body)
-    res.status(200).send(resProxy.body);
+    console.log("rr", resProxy.body)
+    const data = await resProxy.text();
+    console.log("data", data)
+    res.status(200).send(data);
   } catch (error) {
     res.status(400).send(error.toString());
   }
