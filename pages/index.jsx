@@ -6,12 +6,14 @@ import React, { useState, useEffect } from 'react'
 const Home = () => {
   const [inputs, setInputs] = useState({ ["time"]: new Date(Date.now()), age: 68, na: 2, sex: 0, bp: 2, c: 0, model: "tree" });
   const [img, setimg] = useState()
+  const [state, setstate] = useState()
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs(values => ({ ...values, [name]: value }))
   }
   const get = async () => {
+    setstate("getting")
     try {
       console.log("data get", JSON.stringify({
         "age": inputs.age,
@@ -46,6 +48,7 @@ const Home = () => {
     } catch (error) {
       // setimg(error.toString());
     }
+    setstate()
   }
 
   return (
@@ -66,8 +69,8 @@ const Home = () => {
             <p className=" text-center text-xs pt-2">This is a drug treatment prediction machine learning model. Try to use different training models to observe the result.</p>
           </div>
         </div>
-        <div className=" flex justify-center pt-5">
-          <div className=" w-72 h-60 mr-4">
+        <div className=" w-full md:flex md:justify-center pt-5">
+          <div className="px-4 md:px-0 md:w-72 md:h-60 md:mr-4">
             <p className=" text-center text-xl">Intro </p>
             <p className=" text-center text-sm pt-2 font-sans">
               "Finding the proper treatment, especially drug treatment,
@@ -78,110 +81,114 @@ const Home = () => {
             </p>
             <a href='https://dev.to/paulwababu' className=" w-full text-xs pt-2 underline text-right">inspired by paulwababu</a>
           </div>
-          <div className=" mt-5">
-            <label className=" px-6 mb-6 block">
-              <p className=" text-invar-light-grey leading-4 font-normal mb-3">
-                Age
-              </p>
-              <input
-                name="age" type="text" onChange={handleChange} value={inputs.age || ""}
-                required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
-              />
-            </label>
-            <label className="px-6 mb-6 block">
-              <p className=" text-invar-light-grey leading-4 font-normal mb-3">
-                Gender
-              </p>
-              <div className="relative">
-                <select name="sex" type="text" onChange={handleChange} value={inputs.sex || ""}
+          <div className=" flex justify-center">
+            <div className=" mt-5">
+              <label className=" px-6 mb-6 block">
+                <p className=" text-invar-light-grey leading-4 font-normal mb-3">
+                  Age
+                </p>
+                <input
+                  name="age" type="text" onChange={handleChange} value={inputs.age || ""}
                   required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
-                >
-                  <option value="0">famale</option>
-                  <option value="1">male</option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-                  <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                </div>
-              </div>
-            </label>
-            <label className="px-6 mb-6 block">
-              <p className=" text-invar-light-grey leading-4 font-normal mb-3">
-                Na_to_K
-              </p>
-              <input
-                name="na" type="text" onChange={handleChange} value={inputs.na || ""}
-                required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
-              />
-            </label>
-          </div>
-          <div className=" mt-5">
-            <label className="px-6 mb-6 block">
-              <p className=" text-invar-light-grey leading-4 font-normal mb-3">
-                BP
-              </p>
-              <div className="relative">
-                <select name="bp" type="text" onChange={handleChange} value={inputs.bp || ""}
-                  required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
-                >
-                  <option value="2">NORMAL</option>
-                  <option value="1">HIGH</option>
-                  <option value="0">LOW</option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-                  <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                </div>
-              </div>
-            </label>
-            <label className="px-6 mb-6 block">
-              <p className=" text-invar-light-grey leading-4 font-normal mb-3">
-                Cholesterol
-              </p>
-              <div className="relative">
-                <select name="c" type="text" onChange={handleChange} value={inputs.c || ""}
-                  required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
-                >
-                  <option value="2">NORMAL</option>
-                  <option value="1">HIGH</option>
-                  <option value="0">LOW</option>
-                </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
-                  <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
-                </div>
-              </div>
-            </label>
-          </div>
-          <div className=" text-white ml-4 w-64">
-            <div className=" mt-5 bg-black p-4 h-min rounded-3xl">
+                />
+              </label>
               <label className="px-6 mb-6 block">
-                <p className=" text-center leading-4 font-normal mb-3 text-white">
-                  Model
+                <p className=" text-invar-light-grey leading-4 font-normal mb-3">
+                  Gender
                 </p>
                 <div className="relative">
-                  <select name="model" type="text" onChange={handleChange} value={inputs.model || ""}
-                    required className="block bg-black text-white h-12 appearance-none rounded focus:border border border-white font-normal px-[15px] pr-10"
+                  <select name="sex" type="text" onChange={handleChange} value={inputs.sex || ""}
+                    required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
                   >
-                    <option value="tree">Decision tree</option>
-                    <option value="svm">SVM</option>
+                    <option value="0">famale</option>
+                    <option value="1">male</option>
                   </select>
-                  <div className="pointer-events-none absolute inset-y-0 -right-0 flex items-center px-2 text-white">
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                  </div>
+                </div>
+              </label>
+              <label className="px-6 mb-6 block">
+                <p className=" text-invar-light-grey leading-4 font-normal mb-3">
+                  Na_to_K
+                </p>
+                <input
+                  name="na" type="text" onChange={handleChange} value={inputs.na || ""}
+                  required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
+                />
+              </label>
+            </div>
+            <div className=" mt-5">
+              <label className="px-6 mb-6 block">
+                <p className=" text-invar-light-grey leading-4 font-normal mb-3">
+                  BP
+                </p>
+                <div className="relative">
+                  <select name="bp" type="text" onChange={handleChange} value={inputs.bp || ""}
+                    required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
+                  >
+                    <option value="2">NORMAL</option>
+                    <option value="1">HIGH</option>
+                    <option value="0">LOW</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+                    <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                  </div>
+                </div>
+              </label>
+              <label className="px-6 mb-6 block">
+                <p className=" text-invar-light-grey leading-4 font-normal mb-3">
+                  Cholesterol
+                </p>
+                <div className="relative">
+                  <select name="c" type="text" onChange={handleChange} value={inputs.c || ""}
+                    required className="block bg-invar-main-purple h-12 w-28 rounded focus:border-4 border-2 border-black font-normal px-[15px]"
+                  >
+                    <option value="2">NORMAL</option>
+                    <option value="1">HIGH</option>
+                    <option value="0">LOW</option>
+                  </select>
+                  <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
                     <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
                   </div>
                 </div>
               </label>
             </div>
-            <button className=" btn btn-wide text-white mt-5 bg-black p-4 h-min rounded-3xl "
-              onClick={() => get()}>
-              predict
-            </button>
-            {img &&
-              <div className=' text-black mt-2 w-64'>
-                <p className="">Result: </p>
-                <p className=" break-all">
-                  {img}
-                  {/* api response error 400 */}
-                </p>
+          </div>
+          <div className=" w-full md:w-min flex justify-center">
+            <div className=" text-white ml-4 w-64">
+              <div className=" mt-5 bg-black p-4 h-min rounded-3xl">
+                <label className="px-6 mb-6 block">
+                  <p className=" text-center leading-4 font-normal mb-3 text-white">
+                    Model
+                  </p>
+                  <div className="relative">
+                    <select name="model" type="text" onChange={handleChange} value={inputs.model || ""}
+                      required className="block bg-black text-white h-12 appearance-none rounded focus:border border border-white font-normal px-[15px] pr-10"
+                    >
+                      <option value="tree">Decision tree</option>
+                      <option value="svm">SVM</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 -right-0 flex items-center px-2 text-white">
+                      <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                    </div>
+                  </div>
+                </label>
               </div>
-            }
+              <button className={" btn btn-wide text-white mt-5 bg-black p-4 h-min rounded-3xl "+(state=="getting"?" loading":"")}
+                onClick={() => get()}>
+                predict
+              </button>
+              {img &&
+                <div className=' text-black mt-2 w-64'>
+                  <p className="">Result: </p>
+                  <p className=" break-all">
+                    {img}
+                    {/* api response error 400 */}
+                  </p>
+                </div>
+              }
+            </div>
           </div>
         </div>
         <div className=" w-full flex justify-center mt-10">
